@@ -1,0 +1,92 @@
+import graphviz
+
+dot = graphviz.Digraph(comment='专业和国家选择')
+
+# 预算
+dot.node('A', '预算?')
+dot.node('B1', '低预算')
+dot.node('B2', '中预算')
+dot.node('B3', '高预算')
+
+# 是否学习小语种
+dot.node('C1', '是否学习小语种?')
+dot.node('D1', '是')
+dot.node('D2', '否')
+
+# 国家选择
+dot.node('E1', '东欧 (波兰, 捷克)')
+dot.node('E2', '东南亚 (泰国, 印尼)')
+dot.node('E3', '日韩')
+dot.node('E4', '德国 (公立)')
+dot.node('E5', '法国 (公立)')
+dot.node('E6', '南欧 (西班牙, 意大利)')
+dot.node('E7', '日本')
+dot.node('E8', '韩国')
+dot.node('E9', '美国')
+dot.node('E10', '加拿大')
+dot.node('E11', '澳大利亚')
+dot.node('E12', '英国')
+dot.node('E13', '瑞士')
+dot.node('E14', '新加坡')
+dot.node('E15', '中国香港')
+
+# 专业领域
+dot.node('F1', '商科')
+dot.node('F2', '工科')
+dot.node('F3', '艺术')
+dot.node('F4', '计算机科学')
+dot.node('F5', '医学')
+dot.node('F6', '人文科学')
+
+# 具体国家和专业
+dot.node('G1', '美国 -> 商科')
+dot.node('G2', '法国 -> 商科')
+dot.node('G3', '中国香港 -> 商科')
+dot.node('G4', '新加坡 -> 商科')
+dot.node('G5', '新加坡 -> 工科')
+dot.node('G6', '德国 -> 工科')
+dot.node('G7', '美国 -> 工科')
+dot.node('G8', '意大利 -> 艺术')
+dot.node('G9', '法国 -> 艺术')
+dot.node('G10', '英国 -> 艺术')
+dot.node('G11', '美国 -> 计算机科学')
+dot.node('G12', '加拿大 -> 计算机科学')
+dot.node('G13', '瑞士 -> 计算机科学')
+dot.node('G14', '美国 -> 医学')
+dot.node('G15', '英国 -> 医学')
+dot.node('G16', '澳大利亚 -> 医学')
+dot.node('G17', '英国 -> 人文科学')
+dot.node('G18', '法国 -> 人文科学')
+dot.node('G19', '意大利 -> 人文科学')
+
+# 节点连接
+dot.edges(['AB1', 'AB2', 'AB3'])
+dot.edges(['B1C1', 'B2C1', 'B3C1'])
+dot.edges(['C1D1', 'C1D2'])
+dot.edges(['D1E1', 'D1E2', 'D1E3', 'D1E4', 'D1E5', 'D2E6', 'D2E7', 'D2E8', 'D2E9', 'D2E10', 'D2E11', 'D2E12', 'D2E13', 'D2E14', 'D2E15'])
+
+dot.edges(['E1F1', 'E1F2', 'E1F3', 'E1F4', 'E1F5', 'E1F6'])
+dot.edges(['E2F1', 'E2F2', 'E2F3', 'E2F4', 'E2F5', 'E2F6'])
+dot.edges(['E3F1', 'E3F2', 'E3F3', 'E3F4', 'E3F5', 'E3F6'])
+dot.edges(['E4F1', 'E4F2', 'E4F3', 'E4F4', 'E4F5', 'E4F6'])
+dot.edges(['E5F1', 'E5F2', 'E5F3', 'E5F4', 'E5F5', 'E5F6'])
+dot.edges(['E6F1', 'E6F2', 'E6F3', 'E6F4', 'E6F5', 'E6F6'])
+dot.edges(['E7F1', 'E7F2', 'E7F3', 'E7F4', 'E7F5', 'E7F6'])
+dot.edges(['E8F1', 'E8F2', 'E8F3', 'E8F4', 'E8F5', 'E8F6'])
+dot.edges(['E9F1', 'E9F2', 'E9F3', 'E9F4', 'E9F5', 'E9F6'])
+dot.edges(['E10F1', 'E10F2', 'E10F3', 'E10F4', 'E10F5', 'E10F6'])
+dot.edges(['E11F1', 'E11F2', 'E11F3', 'E11F4', 'E11F5', 'E11F6'])
+dot.edges(['E12F1', 'E12F2', 'E12F3', 'E12F4', 'E12F5', 'E12F6'])
+dot.edges(['E13F1', 'E13F2', 'E13F3', 'E13F4', 'E13F5', 'E13F6'])
+dot.edges(['E14F1', 'E14F2', 'E14F3', 'E14F4', 'E14F5', 'E14F6'])
+dot.edges(['E15F1', 'E15F2', 'E15F3', 'E15F4', 'E15F5', 'E15F6'])
+
+dot.edges(['F1G1', 'F1G2', 'F1G3', 'F1G4'])
+dot.edges(['F2G5', 'F2G6', 'F2G7'])
+dot.edges(['F3G8', 'F3G9', 'F3G10'])
+dot.edges(['F4G11', 'F4G12', 'F4G13'])
+dot.edges(['F5G14', 'F5G15', 'F5G16'])
+dot.edges(['F6G17', 'F6G18', 'F6G19'])
+
+# 渲染图
+dot.render('/mnt/data/major_country_selection', format='png', view=False)
